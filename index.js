@@ -4,7 +4,7 @@ var token = ""
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const CharacterAI = require('node_characterai');
+const CharacterAI = require('./node_characterai');
 const characterAI = new CharacterAI();
 
 app.get('/', (req, res) => {
