@@ -4,7 +4,7 @@ var token = ""
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const CharacterAI = require('./node_characterai');
+const CharacterAI = require('node_characterai');
 const characterAI = new CharacterAI();
 
 app.get('/', (req, res) => {
@@ -24,9 +24,9 @@ app.post('/', function(req, res) {
 		characterAI.setAuthenticated(true)
 		characterAI.setToken(req.body.auth)
 	}
-    const characterId = "roCAnDLY3GUGRwUS1iR_GncjvxvntJtdGFsDZGtPMBo"
+    const characterId = "v3lyisRb7INyd5BUdUKEKS1-MUTBom9dY9qV9-2ioTE"
     const chat = await characterAI.createOrContinueChat(characterId);
-    var response = await chat.sendAndAwaitResponse('hi', true)
+    const response = await chat.sendAndAwaitResponse(req.body.msg, true)
 
   res.send({
     'Answer': response.text,
