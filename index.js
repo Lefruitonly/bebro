@@ -26,7 +26,7 @@ app.post('/', function(req, res) {
 	}
     const characterId = "roCAnDLY3GUGRwUS1iR_GncjvxvntJtdGFsDZGtPMBo"
     const chat = await characterAI.createOrContinueChat(characterId);
-    const response = await chat.sendAndAwaitResponse('hi', true)
+    var response = await chat.sendAndAwaitResponse('hi', true)
 
   res.send({
     'Answer': response.text,
